@@ -8,13 +8,14 @@ final class OneNodes_Ajax
 {
     public static function check_payment_status(): void
     {
-        $order_id = isset($_POST['order_id'])
-            ? absint($_POST['order_id'])
-            : 0;
+        check_ajax_referer(
+            'onenodes_check_payment_status',
+            'nonce'
+        );
 
-        $order_key = isset($_POST['order_key'])
-            ? wc_clean(wp_unslash($_POST['order_key']))
-            : '';
+        $order_id = isset($_POST['order_id']) ? absint($_POST['order_id']) : 0;
+
+        $order_key = isset($_POST['order_key']) ? sanitize_text_field(wp_unslash($_POST['order_key'])) : '';
 
         if (!$order_id || empty($order_key)) {
             wp_send_json_error([

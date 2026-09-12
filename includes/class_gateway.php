@@ -6,6 +6,7 @@ use WC_Payment_Gateway;
 use WC_Order;
 use function WooCommerce\PayPalCommerce\OrderTracking\tr;
 
+
 defined('ABSPATH') || exit;
 
 class OneNodes_WC_Gateway extends WC_Payment_Gateway
@@ -20,13 +21,13 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
         $this->id = 'onenodes_crypto';
 
         $this->icon = apply_filters(
-            'woocommerce_onenodes_icon',
+            'onenodes_woocommerce_icon',
             ONENODES_URL . 'assets/images/1nodes.png'
         );
 
         $this->has_fields         = false;
-        $this->method_title       = __('1nodes Payments', 'onenodes');
-        $this->method_description = __('Accept cryptocurrency payments securely via 1nodes gateway.', 'onenodes');
+        $this->method_title       = __('1nodes Payments', '1nodes-for-woocommerce');
+        $this->method_description = __('Accept cryptocurrency payments securely via 1nodes gateway.', '1nodes-for-woocommerce');
         $this->supports           = ['products'];
 
         /*
@@ -42,7 +43,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
 
         $this->title = $this->get_option(
             'title',
-            __('Cryptocurrency (1nodes)', 'onenodes')
+            __('Cryptocurrency (1nodes)', '1nodes-for-woocommerce')
         );
 
         $this->description = $this->get_option(
@@ -74,44 +75,46 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
         $this->form_fields = [
 
             'enabled' => [
-                'title'   => __('Enable/Disable', 'onenodes'),
+                'title'   => __('Enable/Disable', '1nodes-for-woocommerce'),
                 'type'    => 'checkbox',
-                'label'   => __('Enable 1nodes Cryptocurrency Payment', 'onenodes'),
+                'label'   => __('Enable 1nodes Cryptocurrency Payment', '1nodes-for-woocommerce'),
                 'default' => 'no',
             ],
 
             'title' => [
-                'title'       => __('Title', 'onenodes'),
+                'title'       => __('Title', '1nodes-for-woocommerce'),
                 'type'        => 'text',
-                'description' => __('This controls the title which the user sees during checkout.', 'onenodes'),
-                'default'     => __('Cryptocurrency (1nodes)', 'onenodes'),
+                'description' => __('This controls the title which the user sees during checkout.', '1nodes-for-woocommerce'),
+                'default'     => __('Cryptocurrency (1nodes)', '1nodes-for-woocommerce'),
                 'desc_tip'    => true,
             ],
 
             'description' => [
-                'title'       => __('Description', 'onenodes'),
+                'title'       => __('Description', '1nodes-for-woocommerce'),
                 'type'        => 'textarea',
-                'description' => __('This controls the description which the user sees during checkout.', 'onenodes'),
-                'default'     => __('Pay securely using Bitcoin, DogeCoin, LiteCoin and other cryptocurrencies via 1nodes.', 'onenodes'),
+                'description' => __('This controls the description which the user sees during checkout.', '1nodes-for-woocommerce'),
+                'default'     => __('Pay securely using Bitcoin, DogeCoin, LiteCoin and other cryptocurrencies via 1nodes.', '1nodes-for-woocommerce'),
             ],
 
             'merchant_key' => [
-                'title'       => __('Merchant Key', 'onenodes'),
+                'title'       => __('Merchant Key', '1nodes-for-woocommerce'),
                 'type'        => 'text',
-                'description' => __('Enter your 1nodes Merchant Key.', 'onenodes'),
+                'description' => __('Enter your 1nodes Merchant Key.', '1nodes-for-woocommerce'),
                 'default'     => '',
                 'desc_tip'    => true,
             ],
 
             'secret_key' => [
-                'title'       => __('Secret Key', 'onenodes'),
+                'title'       => __('Secret Key', '1nodes-for-woocommerce'),
                 'type'        => 'password',
-                'description' => __('Enter your 1nodes Secret Key.', 'onenodes'),
+                'description' => __('Enter your 1nodes Secret Key.', '1nodes-for-woocommerce'),
                 'default'     => '',
                 'desc_tip'    => true,
             ],
+
         ];
     }
+
 
 
     /**
@@ -144,7 +147,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
         $order = wc_get_order($order_id);
 
         if ( ! $order instanceof WC_Order ) {
-            wc_add_notice( __('Invalid order.', 'onenodes'), 'error');
+            wc_add_notice( __('Invalid order.', '1nodes-for-woocommerce'), 'error');
 
             return [
                 'result' => 'fail',
@@ -155,7 +158,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
          * Validate credentials.
          */
         if ( empty($this->merchant_key) ) {
-            wc_add_notice( __('Payment gateway configuration error. Please contact the administrator.', 'onenodes'), 'error' );
+            wc_add_notice( __('Payment gateway configuration error. Please contact the administrator.', '1nodes-for-woocommerce'), 'error' );
 
             return [
                 'result' => 'fail',
@@ -233,7 +236,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             wc_add_notice(
                 __(
                     'Unable to prepare payment request.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
                 'error'
             );
@@ -264,7 +267,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             ]
         );
 
-
+        
         /**
          * Connection error.
          */
@@ -278,7 +281,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             wc_add_notice(
                 __(
                     'Connection to payment gateway failed. Please try again.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
                 'error'
             );
@@ -326,7 +329,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             wc_add_notice(
                 __(
                     'Invalid response from payment gateway.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
                 'error'
             );
@@ -346,7 +349,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
                 )
                 : __(
                     'An error occurred during payment processing.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 );
 
 
@@ -379,7 +382,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             wc_add_notice(
                 __(
                     'Payment gateway did not return a checkout URL.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
                 'error'
             );
@@ -420,7 +423,7 @@ class OneNodes_WC_Gateway extends WC_Payment_Gateway
             'pending',
             __(
                 'Awaiting 1nodes cryptocurrency payment confirmation.',
-                'onenodes'
+                '1nodes-for-woocommerce'
             )
         );
 

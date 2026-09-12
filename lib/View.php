@@ -10,22 +10,17 @@ class View
         bool $return = true
     ): bool|string {
 
-        extract(
-            $data,
-            EXTR_SKIP
-        );
-
-        ob_start();
-
-        include ONENODES_PATH . 'views/' . $path;
-
-        $content = ob_get_clean();
+        extract($data, EXTR_SKIP);
 
         if ($return) {
-            return $content;
+            ob_start();
+
+            include ONENODES_PATH . 'views/' . $path;
+
+            return ob_get_clean();
         }
 
-        echo $content;
+        include ONENODES_PATH . 'views/' . $path;
 
         return true;
     }

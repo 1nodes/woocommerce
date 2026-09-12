@@ -1,13 +1,15 @@
 <?php
 
 /**
- * Plugin Name: 1nodes
+ * Plugin Name: 1nodes for woocommerce
  * Description: Cryptocurrency payment gateway for WooCommerce.
  * Version: 1.0.0
  * Author: 1nodes
- * Author URI: https://1nodes.com/
+ * Author URI: https://plugins.1nodes.com/
  * Plugin URI: https://1nodes.com/
- * Text Domain: onenodes
+ *  License: GPL-2.0-or-later
+ *  License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: 1nodes-for-woocommerce
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  * Requires PHP: 8.1
@@ -24,9 +26,9 @@ define('ONENODES_URL', plugin_dir_url(__FILE__));
 /**
  * Initialize plugin.
  */
-add_action('plugins_loaded', 'init_onenodes_gateway_plugin', 20);
+add_action('plugins_loaded', 'onenodes_init_gateway_plugin', 20);
 
-function init_onenodes_gateway_plugin(): void
+function onenodes_init_gateway_plugin(): void
 {
     if ( ! class_exists('WooCommerce') ) {
         return;
@@ -86,12 +88,12 @@ function onenodes_register_admin_guide(): void
 {
     add_submenu_page(
         'woocommerce',
-        __('1nodes Guide', 'onenodes'),
-        __('1nodes Guide', 'onenodes'),
+        __('1nodes Guide', '1nodes-for-woocommerce'),
+        __('1nodes Guide', '1nodes-for-woocommerce'),
         'manage_woocommerce',
         'onenodes-guide',
         function () {
-            echo \OneNodes\Gateway\lib\View::render('help.php', []);
+             \OneNodes\Gateway\lib\View::render('help.php', [], false);
         }
     );
 }
@@ -146,6 +148,7 @@ add_action(
     }
 );
 
+
 add_action(
     'wp_ajax_onenodes_check_payment_status',
     '\OneNodes\Gateway\OneNodes_Ajax::check_payment_status'
@@ -169,12 +172,8 @@ function onenodes_enqueue_payment_status_assets(): void
         return;
     }
 
-    if (
-        !isset($_GET['check_pay_status']) ||
-        sanitize_text_field(
-            wp_unslash($_GET['check_pay_status'])
-        ) !== '1'
-    ) {
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is a read-only GET flag used only to conditionally enqueue assets.
+    if ( ! isset($_GET['check_pay_status']) || sanitize_text_field(wp_unslash($_GET['check_pay_status'])) !== '1') {
         return;
     }
 
@@ -212,17 +211,18 @@ function onenodes_enqueue_payment_status_assets(): void
         'OneNodesPayment',
         [
             'ajax_url'  => admin_url('admin-ajax.php'),
+            'nonce'     => wp_create_nonce('onenodes_check_payment_status'),
             'order_id'  => $order->get_id(),
             'order_key' => $order->get_order_key(),
             'messages'  => [
                 'checking' => __(
                     'Please wait, we are checking your payment status...',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
 
                 'timeout' => __(
                     'We are still waiting for payment confirmation.',
-                    'onenodes'
+                    '1nodes-for-woocommerce'
                 ),
             ],
         ]
@@ -241,12 +241,8 @@ function onenodes_render_payment_status_overlay(): void
         return;
     }
 
-    if (
-        !isset($_GET['check_pay_status']) ||
-        sanitize_text_field(
-            wp_unslash($_GET['check_pay_status'])
-        ) !== '1'
-    ) {
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is a read-only GET flag used only to conditionally enqueue assets.
+    if (!isset($_GET['check_pay_status']) || sanitize_text_field(wp_unslash($_GET['check_pay_status'])) !== '1') {
         return;
     }
 
@@ -258,7 +254,7 @@ function onenodes_render_payment_status_overlay(): void
 
             <h3 class="onenodes-payment-title">
                 <?php
-                esc_html_e('Checking payment', 'onenodes');
+                esc_html_e('Checking payment', '1nodes-for-woocommerce');
                 ?>
             </h3>
 
@@ -267,7 +263,6 @@ function onenodes_render_payment_status_overlay(): void
     </div>
     <?php
 }
-
 
 add_action(
     'admin_enqueue_scripts',
@@ -288,13 +283,28 @@ function onenodes_enqueue_admin_guide_assets(string $hook): void
     );
 }
 
-add_action('activated_plugin', function ($plugin)
-{
-    if ($plugin !== plugin_basename(ONENODES_FILE)) {
+register_activation_hook(ONENODES_FILE, function () {
+    if (is_multisite() && function_exists('is_network_admin') && is_network_admin()) {
         return;
     }
 
+    update_option('onenodes_do_activation_redirect', 1, false);
+});
+
+add_action('admin_init', function () {
+    if (!get_option('onenodes_do_activation_redirect')) {
+        return;
+    }
+
+    delete_option('onenodes_do_activation_redirect');
+
+    if (!is_admin()) return;
+
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading core flag, no state change.
+    if (!empty($_GET['activate-multi'])) return;
+
+    if (!current_user_can('manage_options')) return;
+
     wp_safe_redirect(admin_url('admin.php?page=onenodes-guide'));
     exit;
-
 });

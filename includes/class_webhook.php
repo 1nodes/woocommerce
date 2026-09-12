@@ -171,6 +171,16 @@ final class OneNodes_Webhook
         }
 
         /*
+         * Prevent duplicate webhook processing.
+         */
+        if ($order->is_paid()) {
+            wp_send_json([
+                'status' => 'success',
+                'message' => 'Already processed',
+            ], 200);
+        }
+
+        /*
          * Only process paid payments.
          */
         if (
@@ -244,16 +254,6 @@ final class OneNodes_Webhook
         $order->save();
 
         /*
-         * Prevent duplicate webhook processing.
-         */
-        if ($order->is_paid()) {
-            wp_send_json([
-                'status' => 'success',
-                'message' => 'Already processed',
-            ], 200);
-        }
-
-        /*
          * Complete WooCommerce payment.
          */
         $payment_id = !empty($inputs['payment_id'])
@@ -267,7 +267,7 @@ final class OneNodes_Webhook
         $order->add_order_note(
             __(
                 'Payment confirmed by 1nodes webhook.',
-                'onenodes'
+                '1nodes-for-woocommerce'
             )
         );
 

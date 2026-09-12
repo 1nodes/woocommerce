@@ -130,7 +130,6 @@
             'Cryptocurrency (1nodes)',
 
         canMakePayment: function () {
-
             return true;
         },
 

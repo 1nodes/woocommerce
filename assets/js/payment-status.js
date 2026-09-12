@@ -27,6 +27,7 @@
             dataType: 'json',
 
             data: {
+                nonce: OneNodesPayment.nonce,
                 action: 'onenodes_check_payment_status',
                 order_id: OneNodesPayment.order_id,
                 order_key: OneNodesPayment.order_key
