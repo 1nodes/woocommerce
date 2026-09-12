@@ -7,7 +7,7 @@ Cryptocurrency payment gateway for WooCommerce powered by 1nodes.
 * WordPress
 * WooCommerce
 * PHP 8.1+
-* A 1nodes merchant account
+* A <a href="https://1nodes.com/">1Nodes</a> merchant account
 
 ## Features
 
