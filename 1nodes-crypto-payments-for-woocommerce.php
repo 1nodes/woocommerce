@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Plugin Name: 1nodes for woocommerce
+ * Plugin Name: 1nodes crypto payments for woocommerce
  * Description: Cryptocurrency payment gateway for WooCommerce.
  * Version: 1.0.0
  * Author: 1nodes
- * Author URI: https://plugins.1nodes.com/
+ * Author URI: https://1nodes.com/plugins/
  * Plugin URI: https://1nodes.com/
  *  License: GPL-2.0-or-later
  *  License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: 1nodes-for-woocommerce
+ * Text Domain: 1nodes-crypto-payments-for-woocommerce
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  * Requires PHP: 8.1
@@ -88,8 +88,8 @@ function onenodes_register_admin_guide(): void
 {
     add_submenu_page(
         'woocommerce',
-        __('1nodes Guide', '1nodes-for-woocommerce'),
-        __('1nodes Guide', '1nodes-for-woocommerce'),
+        __('1nodes Guide', '1nodes-crypto-payments-for-woocommerce'),
+        __('1nodes Guide', '1nodes-crypto-payments-for-woocommerce'),
         'manage_woocommerce',
         'onenodes-guide',
         function () {
@@ -217,12 +217,12 @@ function onenodes_enqueue_payment_status_assets(): void
             'messages'  => [
                 'checking' => __(
                     'Please wait, we are checking your payment status...',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 ),
 
                 'timeout' => __(
                     'We are still waiting for payment confirmation.',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 ),
             ],
         ]
@@ -254,7 +254,7 @@ function onenodes_render_payment_status_overlay(): void
 
             <h3 class="onenodes-payment-title">
                 <?php
-                esc_html_e('Checking payment', '1nodes-for-woocommerce');
+                esc_html_e('Checking payment', '1nodes-crypto-payments-for-woocommerce');
                 ?>
             </h3>
 

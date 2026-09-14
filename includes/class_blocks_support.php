@@ -89,7 +89,7 @@ final class OneNodes_Blocks_Support extends AbstractPaymentMethodType
     {
         return [
 
-            'title'       => $this->settings['title'] ?? __('Cryptocurrency (1nodes)', '1nodes-for-woocommerce'),
+            'title'       => $this->settings['title'] ?? __('Cryptocurrency (1nodes)', '1nodes-crypto-payments-for-woocommerce'),
 
             'description' => $this->settings['description']
                 ?? '',

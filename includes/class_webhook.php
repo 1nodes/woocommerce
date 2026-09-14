@@ -267,7 +267,7 @@ final class OneNodes_Webhook
         $order->add_order_note(
             __(
                 'Payment confirmed by 1nodes webhook.',
-                '1nodes-for-woocommerce'
+                '1nodes-crypto-payments-for-woocommerce'
             )
         );
 

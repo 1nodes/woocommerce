@@ -23,7 +23,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     '1nodes Payment Gateway',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
             </h1>
@@ -32,7 +32,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     'Accept cryptocurrency payments on your WooCommerce store with 1nodes.',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
             </p>
@@ -50,7 +50,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     'Open 1nodes',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
 
@@ -70,7 +70,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     'Get started in a few simple steps',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
             </h2>
@@ -79,7 +79,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     'Follow the steps below to connect your WooCommerce store to 1nodes.',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
             </p>
@@ -104,8 +104,8 @@ $onenodes_register_url = 'https://1nodes.com/';
                         <h3>
                             <?php
                             esc_html_e(
-                                '1nodes-for-woocommerce your 1nodes account',
-                                '1nodes-for-woocommerce'
+                                '1nodes-crypto-payments-for-woocommerce your 1nodes account',
+                                '1nodes-crypto-payments-for-woocommerce'
                             );
                             ?>
                         </h3>
@@ -114,7 +114,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                             <?php
                             esc_html_e(
                                 'Create an account and access your 1nodes merchant dashboard.',
-                                '1nodes-for-woocommerce'
+                                '1nodes-crypto-payments-for-woocommerce'
                             );
                             ?>
                         </p>
@@ -136,7 +136,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Create 1nodes Account',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
 
@@ -162,7 +162,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Get your API credentials',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -171,7 +171,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'From your 1nodes merchant dashboard, create or select a merchant and copy your API credentials.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -191,7 +191,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Merchant Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </strong>
@@ -200,7 +200,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Your merchant identifier used to connect your store to 1nodes.',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </span>
@@ -222,7 +222,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Secret Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </strong>
@@ -231,7 +231,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Your private key used to authenticate payment requests and webhooks.',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </span>
@@ -252,7 +252,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                         <?php
                         esc_html_e(
                             'Keep your Secret Key private. Never share it publicly or expose it in frontend code.',
-                            '1nodes-for-woocommerce'
+                            '1nodes-crypto-payments-for-woocommerce'
                         );
                         ?>
                     </p>
@@ -278,7 +278,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Open WooCommerce payment settings',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -287,7 +287,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Go to WooCommerce → Settings → Payments and open the 1nodes payment gateway.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -317,7 +317,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Open 1nodes Settings',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
 
@@ -343,7 +343,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Enter your credentials',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -352,7 +352,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Enter the Merchant Key and Secret Key from your 1nodes dashboard and save the settings.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -371,7 +371,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Merchant Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </strong>
@@ -380,7 +380,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Paste your Merchant Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </small>
@@ -402,7 +402,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Secret Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </strong>
@@ -411,7 +411,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                                 <?php
                                 esc_html_e(
                                     'Paste your Secret Key',
-                                    '1nodes-for-woocommerce'
+                                    '1nodes-crypto-payments-for-woocommerce'
                                 );
                                 ?>
                             </small>
@@ -441,7 +441,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Enable 1nodes payments',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -450,7 +450,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Enable the gateway, save your settings, and 1nodes will be available as a payment method during checkout.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -462,7 +462,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Configure 1nodes',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
 
@@ -488,7 +488,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'You are ready to accept crypto payments',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -497,7 +497,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Once your credentials are saved and the gateway is enabled, customers can pay using supported cryptocurrencies through 1nodes.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -521,7 +521,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'Need help?',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </h3>
@@ -530,7 +530,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                     <?php
                     esc_html_e(
                         'If you have any questions about your Merchant Key, Secret Key, or payment integration, contact the 1nodes support team.',
-                        '1nodes-for-woocommerce'
+                        '1nodes-crypto-payments-for-woocommerce'
                     );
                     ?>
                 </p>
@@ -546,7 +546,7 @@ $onenodes_register_url = 'https://1nodes.com/';
                 <?php
                 esc_html_e(
                     'Visit 1nodes',
-                    '1nodes-for-woocommerce'
+                    '1nodes-crypto-payments-for-woocommerce'
                 );
                 ?>
 
